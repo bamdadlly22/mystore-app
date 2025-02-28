@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { URLSearchParams } from "next/dist/compiled/@edge-runtime/primitives/url";
 
-const productsPage = ({categories, pducts, pductsNumber, error}) => {
+const ProductsPage = ({categories, pducts, pductsNumber, error}) => {
     const [products, setProducts] = useState(pducts);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -115,7 +115,7 @@ const productsPage = ({categories, pducts, pductsNumber, error}) => {
   );
 };
 
-export default productsPage;
+export default ProductsPage;
 
 export async function getServerSideProps({resolvedUrl}) {
     try {

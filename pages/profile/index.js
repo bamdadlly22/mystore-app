@@ -3,7 +3,7 @@ import img from "../../public/images/1.jpg";
 import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
 
-const profilePage = () => {
+const ProfilePage = () => {
   const { user, logout, loading } = useContext(AuthContext);
 
   return (
@@ -51,4 +51,4 @@ const profilePage = () => {
   );
 };
 
-export default profilePage;
+export default ProfilePage;

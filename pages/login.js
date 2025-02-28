@@ -2,7 +2,7 @@ import AuthContext from "@/context/AuthContext";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
-const loginPage = () => {
+const LoginPage = () => {
   const {register, handleSubmit, formState: {errors}} = useForm();
   const {login, loading, profile} = useContext(AuthContext);
   const handleLogin = (data) => {
@@ -51,4 +51,4 @@ const loginPage = () => {
 )
 }
 
-export default loginPage;
+export default LoginPage;

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 
 
-const productsCategoryPage = ({pducts, pductsNumber, category, error}) => {
+const ProductsCategoryPage = ({pducts, pductsNumber, category, error}) => {
     const router = useRouter();
     const [products, setProducts] = useState(pducts);
     const [loading, setLoading] = useState(false);
@@ -89,7 +89,7 @@ const productsCategoryPage = ({pducts, pductsNumber, category, error}) => {
     </>)
 }
 
-export default productsCategoryPage;
+export default ProductsCategoryPage;
 
 export async function getServerSideProps({resolvedUrl, query}) {
     try {

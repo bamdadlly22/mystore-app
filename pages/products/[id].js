@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 
-const productPage = ({product, relatedProducts, error}) => {
+const ProductPage = ({product, relatedProducts, error}) => {
     const [quantity, setQuantity] = useState(1);
     useEffect(() => {
         error && toast.error('something went wrong!');
@@ -70,7 +70,7 @@ const productPage = ({product, relatedProducts, error}) => {
     )
 }
 
-export default productPage;
+export default ProductPage;
 
 
 export const getServerSideProps = async ({query}) => {

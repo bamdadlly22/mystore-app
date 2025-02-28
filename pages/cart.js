@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import emptyCart from '../public/images/empty-cart.png';
 
-const cartPage = () => {
+const CartPage = () => {
     const dispatch = useDispatch();
     const [cart, setCart] = useState([]);
     const state = useSelector(state => state.shoppingCart);
@@ -162,4 +162,4 @@ const cartPage = () => {
     )
 }
 
-export default cartPage;
+export default CartPage;
