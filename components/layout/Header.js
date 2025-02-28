@@ -13,16 +13,16 @@ const Header = () => {
   const [title, setTitle] = useState('');
   const [cart, setCart] = useState([]);
   const state = useSelector(state => state.shoppingCart);
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     axios.get("https://api.escuelajs.co/api/v1/categories?offset=0&limit=5").then((res) => setCats(res.data)).catch(err => toast.error(handleError(err)));
     setCart(state.cart);
-  } , [cats, state])
+  }, [state])
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if(title != '') {
+    if (title != '') {
       router.push(`/products?title=${title}`);
     }
   }
@@ -39,9 +39,9 @@ const Header = () => {
         <div className="navbar p-4">
           <div className="container">
             <Link href="/" legacyBehavior>
-            <a className="navbar-brand">
-              myStore
-            </a>
+              <a className="navbar-brand">
+                myStore
+              </a>
             </Link>
             <form className="d-none d-md-flex w-50" role="search">
               <input
@@ -58,7 +58,7 @@ const Header = () => {
             <div className="header-icons d-flex align-items-center">
               <i className="bi bi-search d-md-none"></i>
               <Link href='/cart'><i className="bi bi-bag-fill me-2"><span className="cart-length">{cart.length}</span></i></Link>
-              {user ? (<Link href='/profile'><img src={user.avatar} className="rounded-5" width={40} height={40} style={{objectFit:'cover'}} /></Link>) : (<Link href='/login'><i className="bi bi-person-circle"></i></Link>)}
+              {user ? (<Link href='/profile'><img src={user.avatar} className="rounded-5" width={40} height={40} style={{ objectFit: 'cover' }} /></Link>) : (<Link href='/login'><i className="bi bi-person-circle"></i></Link>)}
             </div>
           </div>
         </div>
@@ -82,47 +82,47 @@ const Header = () => {
             >
               <ul className="navbar-nav">
                 <li className="nav-item">
-                <Link href="/" legacyBehavior>
-                  <a className={router.pathname === "/" ? "nav-link active" : "nav-link"} aria-current="page">
-                    Home
-                  </a>
+                  <Link href="/" legacyBehavior>
+                    <a className={router.pathname === "/" ? "nav-link active" : "nav-link"} aria-current="page">
+                      Home
+                    </a>
                   </Link>
                 </li>
                 <li className="nav-item dropdown">
-                <Link href="/products" legacyBehavior>
-                  <a
-                    className={router.pathname === "/products" ? "nav-link dropdown-toggle active" : "nav-link dropdown-toggle"}
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    shop
-                  </a>
+                  <Link href="/products" legacyBehavior>
+                    <a
+                      className={router.pathname === "/products" ? "nav-link dropdown-toggle active" : "nav-link dropdown-toggle"}
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      shop
+                    </a>
                   </Link>
                   <ul className="dropdown-menu">
                     {cats && cats.map(cat => (
                       <li key={cat.id}>
-                       <Link href={`/categories/${cat.id}/products`} legacyBehavior>
-                      <a className="dropdown-item">
-                        {cat.name}
-                      </a>
-                      </Link>
-                    </li>
+                        <Link href={`/categories/${cat.id}/products`} legacyBehavior>
+                          <a className="dropdown-item">
+                            {cat.name}
+                          </a>
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </li>
                 <li className="nav-item">
-                <Link href="/about" legacyBehavior>
-                  <a className={router.pathname === "/about" ? "nav-link active" : "nav-link"}>
-                    about us
-                  </a>
+                  <Link href="/about" legacyBehavior>
+                    <a className={router.pathname === "/about" ? "nav-link active" : "nav-link"}>
+                      about us
+                    </a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                <Link href="/contact" legacyBehavior>
-                  <a className={router.pathname === "/contact" ? "nav-link active" : "nav-link"}>
-                    contact us
-                  </a>
+                  <Link href="/contact" legacyBehavior>
+                    <a className={router.pathname === "/contact" ? "nav-link active" : "nav-link"}>
+                      contact us
+                    </a>
                   </Link>
                 </li>
               </ul>
